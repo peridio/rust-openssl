@@ -1093,3 +1093,15 @@ pub enum OSSL_PROVIDER {}
 
 #[cfg(ossl300)]
 pub enum OSSL_LIB_CTX {}
+
+#[cfg(ossl300)]
+pub enum OSSL_STORE_CTX {}
+
+#[cfg(ossl300)]
+pub enum UI_METHOD {}
+
+#[cfg(ossl300)]
+pub enum OSSL_PARAM {}
+
+#[cfg(ossl300)]
+pub enum OSSL_STORE_INFO {}

@@ -179,6 +179,8 @@ pub mod sign;
 pub mod srtp;
 pub mod ssl;
 pub mod stack;
+#[cfg(ossl300)]
+pub mod store;
 pub mod string;
 pub mod symm;
 pub mod version;
