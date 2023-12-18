@@ -1,6 +1,7 @@
 use crate::error::ErrorStack;
 use crate::lib_ctx::LibCtxRef;
 use crate::pkey::{PKey, Private};
+use crate::x509::X509;
 use crate::{cvt, cvt_p};
 use foreign_types::{ForeignType, ForeignTypeRef};
 use libc::c_int;
@@ -122,6 +123,16 @@ impl Store {
             let evp_pkey = cvt_p(ffi::OSSL_STORE_INFO_get1_PKEY(info.as_ptr()))?;
 
             Ok(PKey::from_ptr(evp_pkey))
+        }
+    }
+
+    /// Get the x509 certificate of the given Store
+    #[corresponds(OSSL_STORE_INFO_get1_CERT)]
+    pub fn get_certificate(info: &StoreInfo) -> Result<X509, ErrorStack> {
+        unsafe {
+            let x509_cert = cvt_p(ffi::OSSL_STORE_INFO_get1_CERT(info.as_ptr()))?;
+
+            Ok(X509::from_ptr(x509_cert))
         }
     }
 }

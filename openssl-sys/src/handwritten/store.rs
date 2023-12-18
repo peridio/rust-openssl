@@ -38,5 +38,7 @@ extern "C" {
     #[cfg(ossl300)]
     pub fn OSSL_STORE_INFO_get1_PKEY(info: *const OSSL_STORE_INFO) -> *mut EVP_PKEY;
     #[cfg(ossl300)]
+    pub fn OSSL_STORE_INFO_get1_CERT(info: *const OSSL_STORE_INFO) -> *mut X509;
+    #[cfg(ossl300)]
     pub fn OSSL_STORE_INFO_free(info: *mut OSSL_STORE_INFO);
 }
